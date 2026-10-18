@@ -83,13 +83,18 @@ function Home() {
         return items.length ? <Section key={d.slug} title={d.name} to={d.slug}><ProductGrid products={items} /></Section> : null;
       })}
 
-      <Section title="Marcas no catálogo">
+      {all.length === 0 && (
+        <section className="mx-auto mt-10 max-w-7xl px-3">
+          <p className="rounded-lg border bg-muted p-8 text-center text-muted-foreground">Nenhum produto cadastrado ainda.</p>
+        </section>
+      )}
+      {getBrands().length > 0 && <Section title="Marcas no catálogo">
         <ul className="flex flex-wrap gap-2">
           {getBrands().map((b) => (
             <li key={b}><Link to="/busca" search={{ q: b }} className="inline-block rounded-full border px-4 py-2 text-sm font-medium hover:border-primary">{b}</Link></li>
           ))}
         </ul>
-      </Section>
+      </Section>}
     </>
   );
 }
