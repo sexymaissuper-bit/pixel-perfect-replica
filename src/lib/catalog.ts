@@ -1,20 +1,27 @@
 /**
- * Camada de acesso ao catálogo. Hoje lê o catálogo demonstrativo;
- * troque `source` por uma chamada ao backend real sem alterar as páginas.
+ * Catálogo importado. Páginas e validação de pedidos usam a mesma fonte.
  */
-import { demoProducts } from "@/data/demo/catalog";
+import importedProducts from "@/data/catalog/products.json";
 import { departments, OFFERS_SLUG } from "@/data/departments";
 import type { Product, Variant } from "@/data/types";
 
-const source: Product[] = demoProducts;
+const source = importedProducts as unknown as Product[];
+
+const hygieneCategory =
+  /higien|shampoo|condicionador|banheir|fralda|tapete|colonia|perfume|odor|limpeza|cuidado-oral|hidratante|escova|pente|banho/;
 
 export const normalize = (s: string) =>
-  s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
 
 export const effectivePrice = (v: Variant) =>
   v.salePrice != null && v.salePrice < v.price ? v.salePrice : v.price;
 
-export const hasSale = (p: Product) => p.variants.some((v) => v.salePrice != null && v.salePrice < v.price);
+export const hasSale = (p: Product) =>
+  p.variants.some((v) => v.salePrice != null && v.salePrice < v.price);
 export const minPrice = (p: Product) => Math.min(...p.variants.map(effectivePrice));
 export const inStock = (p: Product) => p.variants.some((v) => v.stock > 0);
 
@@ -54,7 +61,15 @@ function matchesText(p: Product, q: string) {
   const dept = departments.find((d) => d.slug === p.department);
   const cat = dept?.categories.find((c) => c.slug === p.category);
   const hay = normalize(
-    [p.name, p.brand, dept?.name, cat?.name, p.description, ...(p.keywords ?? []), ...Object.values(p.attributes)].join(" "),
+    [
+      p.name,
+      p.brand,
+      dept?.name,
+      cat?.name,
+      p.description,
+      ...(p.keywords ?? []),
+      ...Object.values(p.attributes),
+    ].join(" "),
   );
   return terms.every((t) => hay.includes(t));
 }
@@ -70,6 +85,8 @@ export function scopeProducts(q: ProductQuery) {
   return source.filter((p) => {
     if (q.department === OFFERS_SLUG) {
       if (!hasSale(p)) return false;
+    } else if (q.department === "higiene-beleza") {
+      if (!hygieneCategory.test(p.category)) return false;
     } else if (q.department && p.department !== q.department) return false;
     if (q.category && p.category !== q.category) return false;
     if (q.q && !matchesText(p, q.q)) return false;

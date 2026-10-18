@@ -1,0 +1,280 @@
+[
+  {
+    "slug": "cachorros",
+    "name": "Cachorros",
+    "categories": [
+      {
+        "slug": "racao-umida",
+        "name": "Ração Úmida"
+      },
+      {
+        "slug": "petiscos",
+        "name": "Petiscos"
+      },
+      {
+        "slug": "racao-seca",
+        "name": "Ração Seca"
+      },
+      {
+        "slug": "brinquedos",
+        "name": "Brinquedos"
+      },
+      {
+        "slug": "acessorios",
+        "name": "acessorios"
+      },
+      {
+        "slug": "tapetes-higienicos",
+        "name": "tapetes-higienicos"
+      },
+      {
+        "slug": "fraldas-descartaveis",
+        "name": "Fraldas Descartáveis"
+      },
+      {
+        "slug": "banheiros-caninos",
+        "name": "Banheiros Caninos"
+      },
+      {
+        "slug": "colares-elizabetanos",
+        "name": "Colares Elizabetanos"
+      },
+      {
+        "slug": "roupas-cirurgicas",
+        "name": "Roupas Cirúrgicas"
+      },
+      {
+        "slug": "shampoos-condicionadores",
+        "name": "shampoos-condicionadores"
+      },
+      {
+        "slug": "colonias-perfumes",
+        "name": "colonias-perfumes"
+      },
+      {
+        "slug": "sabonetes",
+        "name": "sabonetes"
+      },
+      {
+        "slug": "lencos-umedecidos",
+        "name": "lencos-umedecidos"
+      },
+      {
+        "slug": "cuidado-oral",
+        "name": "cuidado-oral"
+      },
+      {
+        "slug": "eliminador-de-odores",
+        "name": "eliminador-de-odores"
+      },
+      {
+        "slug": "banho-a-seco",
+        "name": "banho-a-seco"
+      },
+      {
+        "slug": "po-higienico",
+        "name": "po-higienico"
+      },
+      {
+        "slug": "cata-caca",
+        "name": "cata-caca"
+      },
+      {
+        "slug": "hidratantes",
+        "name": "hidratantes"
+      },
+      {
+        "slug": "shampoos-e-condicionadores",
+        "name": "Shampoos e Condicionadores"
+      },
+      {
+        "slug": "petiscos-dentais",
+        "name": "petiscos-dentais"
+      },
+      {
+        "slug": "acessorios-filhotes",
+        "name": "acessorios-filhotes"
+      },
+      {
+        "slug": "caminhas-e-casinhas",
+        "name": "Caminhas e Casinhas"
+      }
+    ]
+  },
+  {
+    "slug": "gatos",
+    "name": "Gatos",
+    "categories": [
+      {
+        "slug": "petiscos",
+        "name": "Petiscos"
+      },
+      {
+        "slug": "racao-seca",
+        "name": "Ração Seca"
+      },
+      {
+        "slug": "higiene",
+        "name": "higiene"
+      },
+      {
+        "slug": "eliminador-de-odores",
+        "name": "eliminador-de-odores"
+      },
+      {
+        "slug": "tapetes-sanitarios",
+        "name": "tapetes-sanitarios"
+      },
+      {
+        "slug": "luvas-tira-pelos",
+        "name": "luvas-tira-pelos"
+      },
+      {
+        "slug": "areia-sanitaria",
+        "name": "areia-sanitaria"
+      },
+      {
+        "slug": "arranhadores",
+        "name": "arranhadores"
+      },
+      {
+        "slug": "catnip",
+        "name": "catnip"
+      },
+      {
+        "slug": "brinquedos",
+        "name": "brinquedos"
+      },
+      {
+        "slug": "banheiro",
+        "name": "banheiro"
+      }
+    ]
+  },
+  {
+    "slug": "passaros",
+    "name": "Pássaros",
+    "categories": [
+      {
+        "slug": "alimentos-e-acessorios",
+        "name": "Alimentos e Acessórios"
+      }
+    ]
+  },
+  {
+    "slug": "peixes",
+    "name": "Peixes",
+    "categories": [
+      {
+        "slug": "alimentos-e-acessorios",
+        "name": "Alimentos e Acessórios"
+      },
+      {
+        "slug": "alimentacao",
+        "name": "Alimentação"
+      },
+      {
+        "slug": "aquarismo",
+        "name": "Aquarismo"
+      }
+    ]
+  },
+  {
+    "slug": "pequenos-animais",
+    "name": "Pequenos animais",
+    "categories": [
+      {
+        "slug": "roedores",
+        "name": "Roedores"
+      }
+    ]
+  },
+  {
+    "slug": "higiene-beleza",
+    "name": "Higiene e beleza",
+    "categories": [
+      {
+        "slug": "higiene",
+        "name": "higiene"
+      },
+      {
+        "slug": "tapetes-higienicos",
+        "name": "tapetes-higienicos"
+      },
+      {
+        "slug": "fraldas-descartaveis",
+        "name": "Fraldas Descartáveis"
+      },
+      {
+        "slug": "banheiros-caninos",
+        "name": "Banheiros Caninos"
+      },
+      {
+        "slug": "shampoos-condicionadores",
+        "name": "shampoos-condicionadores"
+      },
+      {
+        "slug": "colonias-perfumes",
+        "name": "colonias-perfumes"
+      },
+      {
+        "slug": "cuidado-oral",
+        "name": "cuidado-oral"
+      },
+      {
+        "slug": "eliminador-de-odores",
+        "name": "eliminador-de-odores"
+      },
+      {
+        "slug": "banho-a-seco",
+        "name": "banho-a-seco"
+      },
+      {
+        "slug": "po-higienico",
+        "name": "po-higienico"
+      },
+      {
+        "slug": "hidratantes",
+        "name": "hidratantes"
+      },
+      {
+        "slug": "shampoos-e-condicionadores",
+        "name": "Shampoos e Condicionadores"
+      },
+      {
+        "slug": "tapetes-sanitarios",
+        "name": "tapetes-sanitarios"
+      },
+      {
+        "slug": "banheiro",
+        "name": "banheiro"
+      }
+    ]
+  },
+  {
+    "slug": "farmacia",
+    "name": "Farmácia pet",
+    "categories": [
+      {
+        "slug": "antipulgas-carrapatos",
+        "name": "Antipulgas & Carrapatos"
+      },
+      {
+        "slug": "suplementos-homeopaticos",
+        "name": "Suplementos & Homeopáticos"
+      },
+      {
+        "slug": "medicamentos-gerais",
+        "name": "Medicamentos Gerais"
+      },
+      {
+        "slug": "dermatologicos",
+        "name": "Dermatológicos"
+      },
+      {
+        "slug": "vermifugos",
+        "name": "Vermífugos"
+      }
+    ]
+  }
+]
