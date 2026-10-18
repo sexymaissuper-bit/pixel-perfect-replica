@@ -11,7 +11,7 @@ export function ProductCard({ product }: { product: Product }) {
   const { favorites, toggleFavorite, add, setDrawerOpen } = useShop();
   const fav = favorites.includes(product.id);
   const multi = product.variants.length > 1;
-  const single = product.variants[0];
+  const single = product.variants[0]!;
   const available = inStock(product);
   const sale = !multi && single.salePrice != null && single.salePrice < single.price;
 

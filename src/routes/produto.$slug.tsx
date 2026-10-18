@@ -28,7 +28,7 @@ function ProductPage() {
   const { slug } = Route.useParams();
   const p = getProduct(slug)!;
   const { add, toggleFavorite, favorites, setDrawerOpen, cep, setCep } = useShop();
-  const [variantId, setVariantId] = useState(p.variants.find((v) => v.stock > 0)?.id ?? p.variants[0].id);
+  const [variantId, setVariantId] = useState(p.variants.find((v) => v.stock > 0)?.id ?? p.variants[0]!.id);
   const [img, setImg] = useState(0);
   const [qty, setQty] = useState(1);
   const [cepInput, setCepInput] = useState("");

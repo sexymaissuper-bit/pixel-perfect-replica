@@ -85,7 +85,7 @@ export function queryProducts(q: ProductQuery) {
     if (q.min != null && price < q.min) return false;
     if (q.max != null && price > q.max) return false;
     for (const [k, vals] of Object.entries(q.attrs ?? {})) {
-      if (vals.length && !vals.includes(p.attributes[k])) return false;
+      if (vals.length && !vals.includes(p.attributes[k] ?? "")) return false;
     }
     return true;
   });
