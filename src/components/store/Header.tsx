@@ -25,7 +25,7 @@ function SearchBox({ id }: { id: string }) {
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="O que seu pet precisa hoje?"
-        className="h-11 w-full rounded-full border-0 bg-background pl-4 pr-12 text-sm text-foreground placeholder:text-muted-foreground"
+        className="h-11 w-full rounded-full border bg-muted pl-4 pr-12 text-sm text-foreground placeholder:text-muted-foreground"
       />
       <button type="submit" aria-label="Buscar" className="absolute right-1 top-1 flex h-9 w-9 items-center justify-center rounded-full bg-accent text-accent-foreground">
         <Search className="h-4 w-4" />
@@ -40,7 +40,7 @@ function CepButton() {
   const [val, setVal] = useState("");
   return (
     <div className="relative hidden lg:block">
-      <button onClick={() => { setVal(cep); setOpen((o) => !o); }} className="flex items-center gap-1 text-left text-xs text-primary-foreground/90" aria-expanded={open}>
+      <button onClick={() => { setVal(cep); setOpen((o) => !o); }} className="flex items-center gap-1 text-left text-xs text-primary" aria-expanded={open}>
         <MapPin className="h-5 w-5" aria-hidden />
         <span>{cep ? <>Entregar em<br /><b>{formatCep(cep)}</b></> : <>Informe<br /><b>seu CEP</b></>}</span>
       </button>
@@ -62,28 +62,28 @@ export function Header() {
   const { count, setDrawerOpen } = useShop();
   const [menu, setMenu] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-primary text-primary-foreground shadow-card">
-      <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 lg:gap-6 lg:py-3">
+    <header className="sticky top-0 z-40 border-b bg-background text-primary shadow-card">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-3 py-2 lg:flex-nowrap lg:gap-6 lg:py-4">
         <button className="lg:hidden" aria-label="Abrir menu de departamentos" onClick={() => setMenu(true)}><Menu className="h-6 w-6" /></button>
-        <div className="lg:hidden"><Logo compact /></div>
+        <div className="order-first flex w-full justify-center py-1 lg:hidden"><Logo compact /></div>
         <div className="hidden lg:block"><Logo /></div>
         <div className="hidden flex-1 lg:block"><SearchBox id="search-desktop" /></div>
         <CepButton />
         <nav aria-label="Atalhos" className="ml-auto flex items-center gap-1 lg:ml-0">
-          <Link to="/conta" className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-primary-strong" aria-label="Minha conta"><User className="h-5 w-5" /></Link>
-          <Link to="/favoritos" className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-primary-strong" aria-label="Favoritos"><Heart className="h-5 w-5" /></Link>
-          <button onClick={() => setDrawerOpen(true)} className="relative flex h-11 w-11 items-center justify-center rounded-full hover:bg-primary-strong" aria-label={`Carrinho com ${count} itens`}>
+          <Link to="/conta" className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-secondary" aria-label="Minha conta"><User className="h-5 w-5" /></Link>
+          <Link to="/favoritos" className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-secondary" aria-label="Favoritos"><Heart className="h-5 w-5" /></Link>
+          <button onClick={() => setDrawerOpen(true)} className="relative flex h-11 w-11 items-center justify-center rounded-full hover:bg-secondary" aria-label={`Carrinho com ${count} itens`}>
             <ShoppingCart className="h-5 w-5" />
             {count > 0 && <span className="absolute right-0 top-0 min-w-5 rounded-full bg-accent px-1 text-center text-xs font-bold text-accent-foreground">{count}</span>}
           </button>
         </nav>
       </div>
       <div className="px-3 pb-2 lg:hidden"><SearchBox id="search-mobile" /></div>
-      <nav aria-label="Departamentos" className="hidden bg-primary-strong lg:block">
+      <nav aria-label="Departamentos" className="hidden border-t bg-background lg:block">
         <ul className="mx-auto flex max-w-7xl items-center gap-1 px-3">
           {departments.map((d) => (
             <li key={d.slug} className="group relative">
-              <Link to="/departamento/$slug" params={{ slug: d.slug }} className="flex items-center gap-1 px-3 py-2.5 text-sm font-semibold hover:bg-primary">
+              <Link to="/departamento/$slug" params={{ slug: d.slug }} className="flex items-center gap-1 px-3 py-2.5 text-sm font-semibold hover:bg-secondary">
                 {d.name} <ChevronDown className="h-3.5 w-3.5" aria-hidden />
               </Link>
               <div className="invisible absolute left-0 top-full z-50 min-w-56 rounded-b-lg border bg-popover p-2 text-popover-foreground opacity-0 shadow-card group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
@@ -95,7 +95,7 @@ export function Header() {
               </div>
             </li>
           ))}
-          <li><Link to="/departamento/$slug" params={{ slug: OFFERS_SLUG }} className="block px-3 py-2.5 text-sm font-bold text-accent">Ofertas</Link></li>
+          <li><Link to="/departamento/$slug" params={{ slug: OFFERS_SLUG }} className="block px-3 py-2.5 text-sm font-bold text-sale">Ofertas</Link></li>
         </ul>
       </nav>
 

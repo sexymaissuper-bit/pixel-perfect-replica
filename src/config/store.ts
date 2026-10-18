@@ -48,7 +48,7 @@ export function absoluteUrl(path: string) {
 }
 
 /** Monta meta tags de SEO padronizadas para uma rota. */
-export function seo(opts: { title: string; description: string; path?: string; image?: string }) {
+export function seo(opts: { title: string; description: string; path?: string; image?: string; private?: boolean }) {
   const title = `${opts.title} | ${storeConfig.name}`;
   const meta: Array<Record<string, string>> = [
     { title },
@@ -61,7 +61,7 @@ export function seo(opts: { title: string; description: string; path?: string; i
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: opts.description },
   ];
-  if (storeConfig.noindex) meta.push({ name: "robots", content: "noindex, nofollow" });
+  if (storeConfig.noindex || opts.private) meta.push({ name: "robots", content: "noindex, nofollow" });
   const canonical = opts.path ? absoluteUrl(opts.path) : undefined;
   const links = canonical ? [{ rel: "canonical", href: canonical }] : [];
   if (canonical) meta.push({ property: "og:url", content: canonical });
