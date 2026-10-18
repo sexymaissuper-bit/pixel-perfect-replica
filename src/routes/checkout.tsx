@@ -69,7 +69,7 @@ function Checkout() {
   return (
     <div className="mx-auto max-w-5xl px-3 py-6">
       <h1 className="text-2xl font-extrabold">Finalizar compra</h1>
-      <div className="mt-3"><DemoNotice>pagamento e frete ainda não estão integrados. Nenhuma cobrança será realizada e o pedido não será enviado.</DemoNotice></div>
+      <div className="mt-3"><DemoNotice>o pagamento online e o cálculo de frete estão em configuração. Seu pedido será registrado sem cobrança e nossa equipe confirmará pagamento e entrega.</DemoNotice></div>
       <ol className="mt-4 flex gap-2 text-xs sm:text-sm">
         {steps.map((s, i) => (
           <li key={s} className={`flex-1 rounded-md border-b-4 pb-1 text-center ${i <= step ? "border-primary font-semibold text-primary" : "border-border text-muted-foreground"}`} aria-current={i === step ? "step" : undefined}>{s}</li>
@@ -117,10 +117,10 @@ function Checkout() {
             <div className="space-y-4 text-sm">
               <div><h2 className="font-bold">Comprador</h2><p>{data.name} · {data.email}</p></div>
               <div><h2 className="font-bold">Entrega</h2><p>{data.street}, {data.number} {data.complement} — {data.district}, {data.city}/{data.state?.toUpperCase()} · CEP {data.cep}</p></div>
-              <div><h2 className="font-bold">Pagamento</h2><p>{data.payment === "pix" ? "PIX" : "Cartão de crédito"} (não integrado)</p></div>
+              <div><h2 className="font-bold">Pagamento</h2><p>{data.payment === "pix" ? "PIX" : "Cartão de crédito"} (confirmação pela equipe)</p></div>
               <CartLines compact />
               {errors.length > 0 && <ul role="alert" className="rounded-md border border-destructive p-3 text-destructive">{errors.map((e) => <li key={e}>{e}</li>)}</ul>}
-              <div className="flex gap-2"><Button variant="outline" onClick={() => setStep(2)}>Voltar</Button><Button onClick={submit} disabled={busy}>{busy ? "Validando…" : "Registrar pedido de demonstração"}</Button></div>
+              <div className="flex gap-2"><Button variant="outline" onClick={() => setStep(2)}>Voltar</Button><Button onClick={submit} disabled={busy}>{busy ? "Validando…" : "Registrar pedido"}</Button></div>
             </div>
           )}
         </div>

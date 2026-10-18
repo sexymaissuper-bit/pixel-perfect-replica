@@ -23,8 +23,8 @@ function OrderPage() {
   return (
     <div className="mx-auto max-w-2xl px-3 py-6">
       <h1 className="text-2xl font-extrabold">Pedido {order.id}</h1>
-      <div className="mt-3"><DemoNotice>pedido registrado apenas neste navegador. Não houve cobrança e o pedido não será entregue.</DemoNotice></div>
-      <p className="mt-4 text-sm"><b>Status:</b> Aguardando pagamento (provedor não configurado)</p>
+      <div className="mt-3"><DemoNotice>o pagamento online está em configuração. Nenhuma cobrança foi realizada até o momento.</DemoNotice></div>
+      <p className="mt-4 text-sm"><b>Status:</b> Aguardando pagamento</p>
       <p className="text-sm"><b>Forma escolhida:</b> {order.payment === "pix" ? "PIX" : "Cartão de crédito"}</p>
       <ul className="mt-4 divide-y rounded-lg border">
         {order.items.map((i) => <li key={i.variantId} className="flex justify-between p-3 text-sm"><span>{i.qty}× {i.name} — {i.variant}</span><span>{formatBRL(i.total)}</span></li>)}
