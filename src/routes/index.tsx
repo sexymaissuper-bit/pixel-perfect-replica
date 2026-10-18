@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Bird, Cat, Dog, Fish, Rabbit, Sparkles, Pill, Tag } from "lucide-react";
-import hero from "@/assets/hero.jpg";
+import banner from "@/assets/store-banner.png.asset.json";
 import { seo, storeConfig } from "@/config/store";
 import { departments, OFFERS_SLUG } from "@/data/departments";
 import { getAllProducts, getBrands, hasSale } from "@/lib/catalog";
@@ -41,16 +41,10 @@ function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-muted">
-        <img src={hero} alt="Cachorro e gato juntos" width={1600} height={640} className="h-56 w-full object-cover object-right sm:h-80 lg:h-[420px]" />
-        <div className="absolute inset-0 mx-auto flex max-w-7xl items-center px-4">
-          <div className="max-w-[55%] sm:max-w-md">
-            <h1 className="text-2xl font-extrabold leading-tight text-primary-strong sm:text-4xl lg:text-5xl">Tudo para o seu pet</h1>
-            <p className="mt-2 text-sm text-foreground sm:text-lg">Ração, higiene, brinquedos e acessórios em um só lugar.</p>
-            <Link to="/departamento/$slug" params={{ slug: "cachorros" }} className="mt-4 inline-flex h-11 items-center rounded-full bg-accent px-6 font-bold text-accent-foreground">
-              Comprar agora
-            </Link>
-          </div>
-        </div>
+        <h1 className="sr-only">Petz Store — Tudo para o seu pet. Mais carinho todos os dias.</h1>
+        <Link to="/departamento/$slug" params={{ slug: "cachorros" }} aria-label="Comprar agora na Petz Store">
+          <img src={banner.url} alt="Petz Store. Tudo para o seu pet. Mais carinho todos os dias. Ração, higiene, brinquedos e acessórios em um só lugar. Comprar agora." width={1920} height={640} className="block h-auto w-full" fetchPriority="high" />
+        </Link>
       </section>
 
       <nav aria-label="Comprar por pet" className="mx-auto mt-6 max-w-7xl px-3">

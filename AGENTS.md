@@ -15,3 +15,6 @@
 - Store identity/contacts/SEO come from `src/config/store.ts`; empty values are never rendered; why: no invented business data.
 - Order prices/stock are recomputed server-side (`src/lib/orders.functions.ts`); why: never trust browser totals.
 - Production runs as Node server (`NITRO_PRESET=node-server`, Dockerfile, `/api/health`); why: hosted on Coolify, not Workers.
+- Shared admin access uses a server-verified encrypted session; every administrative operation checks it before loading the privileged client, because a hidden navigation gesture is not authorization.
+- Administrative settings, orders and aggregate page events live in private Supabase tables; why: persist across devices without exposing customer data to public clients.
+- Uploaded brand media uses asset pointers and a locally derived favicon; why: preserve the supplied artwork without bundling large originals.

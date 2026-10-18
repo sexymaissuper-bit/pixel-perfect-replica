@@ -229,6 +229,12 @@ export function convertProduct(p) {
         continue;
       }
       const v = textValue(value);
+      if (
+        /r\$|varejista|promocoes|promocao|frete gratis|desconto|assinant|hipotetic/i.test(
+          normalize(v),
+        )
+      )
+        continue;
       if (v) specs[`${prefix}${cleanText(key.replace(/_/g, " "))}`] = v;
     }
   }

@@ -14,7 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_login_attempts: {
+        Row: {
+          attempts: number
+          key: string
+          window_start: string
+        }
+        Insert: {
+          attempts?: number
+          key: string
+          window_start?: string
+        }
+        Update: {
+          attempts?: number
+          key?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
+      admin_settings: {
+        Row: {
+          key: string
+          updated_at: string
+          value: Json
+        }
+        Insert: {
+          key: string
+          updated_at?: string
+          value?: Json
+        }
+        Update: {
+          key?: string
+          updated_at?: string
+          value?: Json
+        }
+        Relationships: []
+      }
+      store_events: {
+        Row: {
+          created_at: string
+          id: string
+          kind: string
+          path: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kind: string
+          path: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kind?: string
+          path?: string
+        }
+        Relationships: []
+      }
+      store_orders: {
+        Row: {
+          address: Json
+          created_at: string
+          customer: Json
+          id: string
+          items: Json
+          payment: string
+          status: string
+          subtotal: number
+          total: number
+          updated_at: string
+        }
+        Insert: {
+          address: Json
+          created_at?: string
+          customer: Json
+          id: string
+          items: Json
+          payment: string
+          status?: string
+          subtotal: number
+          total: number
+          updated_at?: string
+        }
+        Update: {
+          address?: Json
+          created_at?: string
+          customer?: Json
+          id?: string
+          items?: Json
+          payment?: string
+          status?: string
+          subtotal?: number
+          total?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

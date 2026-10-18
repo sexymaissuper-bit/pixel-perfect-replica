@@ -132,3 +132,15 @@ test("honors the source store's explicit blocked-product list without executing 
     { slug: "ativo" },
   ]);
 });
+test("does not publish speculative retailer promotions disguised as technical specifications", () => {
+  const p = convertProduct({
+    ...fixture,
+    specs: {
+      peso_ou_volume:
+        "A R$ 26.9 geralmente refere-se a embalagens menores, dependendo do varejista e promoções.",
+      idade: "Adulto",
+    },
+  });
+  assert.equal(p.specs["peso ou volume"], undefined);
+  assert.equal(p.specs.idade, "Adulto");
+});
