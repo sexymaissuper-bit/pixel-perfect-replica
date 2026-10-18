@@ -11,8 +11,8 @@ export const storeConfig = {
   /** Quando true (padrão até o lançamento), todas as páginas recebem noindex. */
   noindex: (import.meta.env.VITE_NOINDEX as string | undefined) !== "false",
   contact: {
-    email: "",
-    phone: "",
+    email: "contato@petzstore.online",
+    phone: "(62) 99604-3142",
     whatsapp: "",
     hours: "",
   },

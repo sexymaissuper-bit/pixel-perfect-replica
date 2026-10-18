@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { storeConfig } from "@/config/store";
 import { institutionalPages } from "@/data/institutional";
 import { departments } from "@/data/departments";
+import { ContactLinks } from "./ContactLinks";
 
 export function Footer() {
   const { contact, company } = storeConfig;
@@ -27,8 +28,7 @@ export function Footer() {
         <div className="text-sm">
           <h2 className="font-bold">Atendimento</h2>
           <ul className="mt-3 space-y-2">
-            {contact.email && <li>{contact.email}</li>}
-            {contact.phone && <li>{contact.phone}</li>}
+            <ContactLinks />
             {contact.hours && <li>{contact.hours}</li>}
             {!contact.email && !contact.phone && <li className="text-muted-foreground">Canais de atendimento serão informados em breve.</li>}
           </ul>
