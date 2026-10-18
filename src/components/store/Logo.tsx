@@ -12,8 +12,8 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       const now = Date.now();
       clicks.current = { count: now - clicks.current.time < 650 ? clicks.current.count + 1 : 1, time: now };
       if (isTripleClick(clicks.current.count)) { event.preventDefault(); clicks.current.count = 0; navigate({ to: "/admin" }); }
-    }} className="flex shrink-0 items-center bg-background px-2 py-1 rounded-md" aria-label={`${storeConfig.name} — página inicial`}>
-      <img src={logo.url} alt={storeConfig.name} width={1580} height={353} className={compact ? "h-8 w-32 object-contain" : "h-10 w-44 object-contain"} />
+    }} className="flex shrink-0 items-center" aria-label={`${storeConfig.name} — página inicial`}>
+      <img src={logo.url} alt={storeConfig.name} width={1580} height={353} className={compact ? "h-auto w-full max-w-80 object-contain" : "h-auto w-72 object-contain xl:w-80"} />
     </Link>
   );
 }
