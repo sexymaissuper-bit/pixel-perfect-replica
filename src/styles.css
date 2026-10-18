@@ -161,3 +161,23 @@
   body { font-family: var(--font-sans); overflow-x: hidden; }
   :focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
 }
+
+.brand-viewport { overflow: hidden; }
+.brand-track { display: flex; width: max-content; animation: brand-scroll 32s linear infinite; }
+.brand-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  padding: 2px 16px 2px 0;
+  min-width: calc(min(100vw, 1280px) - 24px);
+}
+.brand-track[data-paused="true"],
+.brand-viewport:hover .brand-track,
+.brand-viewport:focus-within .brand-track { animation-play-state: paused; }
+@keyframes brand-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .brand-viewport { overflow-x: auto; }
+  .brand-track { animation: none; }
+  .brand-group[aria-hidden="true"] { display: none; }
+}

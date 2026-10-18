@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Royal Canin",
+    "image": "/marcas/royal-canin.webp",
+    "source": "https://www.royalcanin.com/br"
+  },
+  {
+    "name": "Purina",
+    "image": "/marcas/purina.webp",
+    "source": "https://purina.com.br/themes/custom/purina/purina/Content/img/logo/red/logo.png"
+  },
+  {
+    "name": "Dog Chow",
+    "image": "/marcas/dog-chow.webp",
+    "source": "https://purina.com.br/sites/default/files/2024-03/DogChow_BR.png"
+  },
+  {
+    "name": "Whiskas",
+    "image": "/marcas/whiskas.webp",
+    "background": "#602080",
+    "source": "https://www.whiskas.com.br/sites/g/files/fnmzdf8986/files/logo_2_1.png"
+  },
+  {
+    "name": "Pedigree",
+    "image": "/marcas/pedigree.webp",
+    "background": "#ffcf00",
+    "source": "https://www.pedigree.com.br/sites/g/files/fnmzdf2401/files/pedigree_logo_blue.png"
+  },
+  {
+    "name": "Keldog",
+    "image": "/marcas/keldog.webp",
+    "source": "https://www.kelcopetcare.com.br/wp-content/uploads/2019/11/logo-keldog.jpg"
+  }
+]

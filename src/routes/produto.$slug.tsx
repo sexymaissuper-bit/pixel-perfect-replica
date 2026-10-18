@@ -111,13 +111,12 @@ function ProductPage() {
 
       <div className="mt-4 grid gap-8 lg:grid-cols-2">
         <div>
-          <div className="aspect-square overflow-hidden rounded-lg border bg-muted">
+          <div className="flex aspect-square items-center justify-center overflow-hidden rounded-lg border bg-muted">
             <img
               src={p.images[img] ?? p.image}
               alt={p.name}
-              width={800}
-              height={800}
-              className="h-full w-full object-contain"
+              decoding="async"
+              className="h-auto max-h-full w-auto max-w-full object-contain"
             />
           </div>
           {p.images.length > 1 && (
