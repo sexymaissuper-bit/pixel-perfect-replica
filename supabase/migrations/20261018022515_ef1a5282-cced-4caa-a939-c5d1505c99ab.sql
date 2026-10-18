@@ -1,0 +1,18 @@
+CREATE TABLE public.admin_settings (key text PRIMARY KEY, value jsonb NOT NULL DEFAULT '{}', updated_at timestamptz NOT NULL DEFAULT now());
+GRANT ALL ON public.admin_settings TO service_role;
+ALTER TABLE public.admin_settings ENABLE ROW LEVEL SECURITY;
+CREATE TABLE public.store_orders (id text PRIMARY KEY, customer jsonb NOT NULL, address jsonb NOT NULL, items jsonb NOT NULL, payment text NOT NULL, subtotal numeric NOT NULL, total numeric NOT NULL, status text NOT NULL DEFAULT 'pendente', created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now());
+GRANT ALL ON public.store_orders TO service_role;
+ALTER TABLE public.store_orders ENABLE ROW LEVEL SECURITY;
+CREATE TABLE public.store_events (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), kind text NOT NULL, path text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+GRANT ALL ON public.store_events TO service_role;
+ALTER TABLE public.store_events ENABLE ROW LEVEL SECURITY;
+CREATE TABLE public.admin_login_attempts (key text PRIMARY KEY, attempts integer NOT NULL DEFAULT 0, window_start timestamptz NOT NULL DEFAULT now());
+GRANT ALL ON public.admin_login_attempts TO service_role;
+ALTER TABLE public.admin_login_attempts ENABLE ROW LEVEL SECURITY;
+CREATE FUNCTION public.touch_store_admin_updated_at() RETURNS trigger LANGUAGE plpgsql SET search_path = public AS $$ BEGIN NEW.updated_at = now(); RETURN NEW; END; $$;
+CREATE TRIGGER settings_updated BEFORE UPDATE ON public.admin_settings FOR EACH ROW EXECUTE FUNCTION public.touch_store_admin_updated_at();
+CREATE TRIGGER orders_updated BEFORE UPDATE ON public.store_orders FOR EACH ROW EXECUTE FUNCTION public.touch_store_admin_updated_at();
+CREATE INDEX store_orders_created_idx ON public.store_orders(created_at DESC);
+CREATE INDEX store_events_created_idx ON public.store_events(created_at DESC);
+INSERT INTO public.admin_settings(key,value) VALUES ('minimum_order','24'),('pix','{}'),('pixels','{}'),('speedmax','{}'),('pushcut','{}');
