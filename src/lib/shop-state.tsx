@@ -1,4 +1,5 @@
 /** Estado local do carrinho/favoritos/CEP (persistido em localStorage — modo demonstrativo). */
+import type React from "react";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { getVariant, effectivePrice } from "./catalog";
 
@@ -19,7 +20,9 @@ type Ctx = {
   setDrawerOpen: (o: boolean) => void;
 };
 
-const ShopCtx = createContext<Ctx | null>(null);
+// Mantém o mesmo contexto entre recargas de módulo (HMR) para evitar provider/consumer divergentes.
+const g = globalThis as unknown as { __mlpShopCtx?: React.Context<Ctx | null> };
+const ShopCtx = (g.__mlpShopCtx ??= createContext<Ctx | null>(null));
 const KEY = "mlp:v1";
 
 export function ShopProvider({ children }: { children: ReactNode }) {
