@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { seo } from "@/config/store";
 import { useShop } from "@/lib/shop-state";
 import { validateOrder } from "@/lib/orders.functions";
@@ -9,7 +10,7 @@ import { DemoNotice } from "@/components/store/Footer";
 import { CartLines } from "@/components/store/CartDrawer";
 
 export const Route = createFileRoute("/checkout")({
-  head: () => ({ ...seo({ title: "Finalizar compra", description: "Identificação, entrega e pagamento." }), meta: [{ title: "Finalizar compra" }, { name: "description", content: "Identificação, entrega e pagamento." }, { name: "robots", content: "noindex" }] }),
+  head: () => seo({ title: "Finalizar compra", description: "Identificação, entrega e pagamento na Petz Store.", private: true }),
   component: Checkout,
 });
 
@@ -25,6 +26,7 @@ function Field({ label, name, ...rest }: { label: string; name: string } & React
 }
 
 function Checkout() {
+  const submitOrder = useServerFn(validateOrder);
   const { lines, subtotal, count, clear, cep } = useShop();
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
@@ -49,7 +51,7 @@ function Checkout() {
   const submit = async () => {
     setBusy(true); setErrors([]);
     try {
-      const res = await validateOrder({ data: {
+      const res = await submitOrder({ data: {
         lines,
         customer: { name: data.name, email: data.email, cpf: onlyDigits(data.cpf ?? ""), phone: onlyDigits(data.phone ?? "") },
         address: { cep: onlyDigits(data.cep ?? ""), street: data.street, number: data.number, complement: data.complement || undefined, district: data.district, city: data.city, state: (data.state ?? "").toUpperCase() },

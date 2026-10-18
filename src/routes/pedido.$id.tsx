@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { formatBRL } from "@/lib/format";
 import { DemoNotice } from "@/components/store/Footer";
 import { Button } from "@/components/ui/button";
+import { seo } from "@/config/store";
 
 type Order = { id: string; items: { variantId: string; name: string; variant: string; qty: number; total: number }[]; subtotal: number; total: number; createdAt: string; payment: string };
 
 export const Route = createFileRoute("/pedido/$id")({
-  head: () => ({ meta: [{ title: "Detalhes do pedido" }, { name: "description", content: "Status e itens do seu pedido." }, { name: "robots", content: "noindex" }] }),
+  head: () => seo({ title: "Detalhes do pedido", description: "Status e itens do seu pedido na Petz Store.", private: true }),
   component: OrderPage,
 });
 

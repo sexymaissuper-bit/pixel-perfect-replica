@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useRef } from "react";
 import { storeConfig } from "@/config/store";
-import logo from "@/assets/store-logo.png.asset.json";
+import logo from "@/assets/store-logo-full.png.asset.json";
 import { isTripleClick } from "@/lib/admin-rules";
 
 export function Logo({ compact = false }: { compact?: boolean }) {
@@ -13,7 +13,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       clicks.current = { count: now - clicks.current.time < 650 ? clicks.current.count + 1 : 1, time: now };
       if (isTripleClick(clicks.current.count)) { event.preventDefault(); clicks.current.count = 0; navigate({ to: "/admin" }); }
     }} className="flex shrink-0 items-center bg-background px-2 py-1 rounded-md" aria-label={`${storeConfig.name} — página inicial`}>
-      <img src={logo.url} alt={storeConfig.name} width={1295} height={290} className={compact ? "h-8 w-32 object-contain" : "h-10 w-44 object-contain"} />
+      <img src={logo.url} alt={storeConfig.name} width={1580} height={353} className={compact ? "h-8 w-32 object-contain" : "h-10 w-44 object-contain"} />
     </Link>
   );
 }

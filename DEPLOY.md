@@ -34,6 +34,6 @@ docker run -p 3000:3000 loja-pet
 ## Estado atual
 - Funcional: navegação, departamentos, busca (sem acento/maiúsculas), filtros e ordenação reais, página de produto com
   variantes, favoritos, carrinho persistido localmente, checkout com validação de preço/estoque no servidor.
-- Demonstração: pedidos ficam só no navegador; conta e administração bloqueadas; frete não calculado.
-- A configurar: provedor de pagamento (PIX/cartão com webhook de confirmação), frete, autenticação + papel de
-  administrador verificado no servidor, banco de dados para catálogo/pedidos, importação CSV/JSON no painel.
+- Pedidos são persistidos no Supabase; o resumo do comprador também fica no navegador. Admin protegido por senha compartilhada validada no servidor e sessão criptografada.
+- Runtime na Coolify requer SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ADMIN_PASSWORD e ADMIN_SESSION_SECRET (64 caracteres aleatórios), fornecidos como variáveis privadas. Nunca use prefixo VITE_ nesses segredos.
+- A configurar: pagamentos PIX/cartão, frete, contas de clientes, catálogo real e importação CSV/JSON. Pixels, SpeedMax e Pushcut possuem campos de configuração, mas não disparam serviços externos.
