@@ -48,7 +48,7 @@ export const validateOrder = createServerFn({ method: "POST" })
       subtotal,
       shipping: null as number | null, // sem provedor de frete configurado
       total: subtotal,
-      id: `DEMO-${Date.now().toString(36).toUpperCase()}`,
+      id: `PS-${Date.now().toString(36).toUpperCase()}`,
       status: "aguardando_pagamento_demo" as const,
       paymentConfigured: false,
     };

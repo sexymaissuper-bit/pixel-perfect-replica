@@ -35,8 +35,9 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {company.legalName || storeConfig.name}
-        {company.cnpj && ` · CNPJ ${company.cnpj}`}
+        <p>© {new Date().getFullYear()} {storeConfig.name} · {company.legalName}</p>
+        <p>CNPJ {company.cnpj} · IE {company.stateRegistration}</p>
+        <p>{company.address}</p>
       </div>
     </footer>
   );
@@ -45,7 +46,7 @@ export function Footer() {
 export function DemoNotice({ children }: { children: React.ReactNode }) {
   return (
     <div role="note" className="rounded-lg border border-accent bg-warning-bg p-3 text-sm text-warning-foreground">
-      <strong>Modo demonstração: </strong>{children}
+      <strong>Aviso: </strong>{children}
     </div>
   );
 }

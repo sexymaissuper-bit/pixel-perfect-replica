@@ -13,7 +13,7 @@ function Admin() {
     <div className="mx-auto max-w-3xl px-3 py-8">
       <h1 className="text-2xl font-extrabold">Administração</h1>
       <div className="mt-3">
-        <DemoNotice>a área administrativa está bloqueada. Ela só será liberada após conectar autenticação com verificação de administrador no servidor. Nenhum dado pode ser alterado por aqui.</DemoNotice>
+        <DemoNotice>área restrita. O acesso de administradores será liberado após a configuração do login seguro.</DemoNotice>
       </div>
       <ul className="mt-6 grid gap-3 sm:grid-cols-2">
         {areas.map((a) => <li key={a} className="rounded-lg border p-4 text-sm font-semibold text-muted-foreground">{a}</li>)}

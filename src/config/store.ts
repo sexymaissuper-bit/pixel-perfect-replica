@@ -3,8 +3,8 @@
  * Valores vazios ("") significam "não informado" e NÃO são exibidos no site.
  */
 export const storeConfig = {
-  name: "Minha Loja Pet",
-  shortName: "Loja Pet",
+  name: "Petz Store",
+  shortName: "Petz Store",
   tagline: "Tudo para o seu pet, em um só lugar",
   /** Domínio público definitivo, ex.: https://www.minhalojapet.com.br. Defina VITE_SITE_URL no build. */
   siteUrl: (import.meta.env.VITE_SITE_URL as string | undefined) ?? "",
@@ -17,9 +17,10 @@ export const storeConfig = {
     hours: "",
   },
   company: {
-    legalName: "",
-    cnpj: "",
-    address: "",
+    legalName: "Mares Nascimento Comercio Varejista de Produtos Pet LTDA",
+    cnpj: "50.318.215/0001-23",
+    stateRegistration: "675.560.374.117 (SP)",
+    address: "Rua Diva Ines Gutieri, 45 — Jardim Irapua, Taboão da Serra/SP — CEP 06766-010",
   },
   /** Formas de pagamento exibidas somente quando um provedor real estiver configurado. */
   payments: {
